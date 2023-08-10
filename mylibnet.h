@@ -37,6 +37,9 @@ struct libnet_ipv4_hdr
     struct in_addr ip_src, ip_dst; /* source and dest address */
 };
 
+/*
+ *  Ethernet header
+ */
 struct libnet_ether_hdr{
 	u_int8_t ether_dhost[ETHER_ADDR_LEN];
 	u_int8_t ether_shost[ETHER_ADDR_LEN];
