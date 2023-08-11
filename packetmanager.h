@@ -10,4 +10,5 @@ class PacketManager{
         pcap_t* getHandler();
         void close();
         int packetCapture(const u_char*& packet,pcap_pkthdr*& header);
+        int sendPacket(const u_char*& packet,pcap_pkthdr*& header);
 };

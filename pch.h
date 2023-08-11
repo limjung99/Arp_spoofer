@@ -11,4 +11,9 @@
 #include <cstdio>
 #include <pcap.h>
 #include <pthread.h>
+#include <thread>
+#include <atomic>
+#include <mutex>
+#include <queue>
+#include <condition_variable>
 using namespace std;

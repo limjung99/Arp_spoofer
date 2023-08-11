@@ -40,3 +40,9 @@ int PacketManager::packetCapture(const u_char*& packet,pcap_pkthdr*& header){
 	int res = pcap_next_ex(handle, &header, &packet);
 	return res;
 }
+
+int PacketManager::sendPacket(const u_char*& packet,pcap_pkthdr*& header){
+	cout<<header->caplen<<endl;
+	int res = pcap_sendpacket(handle,packet,header->caplen);
+	return res;
+}
