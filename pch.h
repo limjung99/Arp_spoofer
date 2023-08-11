@@ -1,8 +1,4 @@
-#include "mylibnet.h"
-#include "mac.h"
-#include "ip.h"
-#include "ethhdr.h"
-#include "arphdr.h"
+#pragma once
 #include <string>
 #include <stdint.h>
 #include <ifaddrs.h>
@@ -15,3 +11,4 @@
 #include <cstdio>
 #include <pcap.h>
 #include <pthread.h>
+using namespace std;

@@ -129,6 +129,30 @@ arp_spoofer.out/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arp_spoofer.out.dir/build.make CMakeFiles/arp_spoofer.out.dir/build
 .PHONY : arp_spoofer.out/fast
 
+addressmanager.o: addressmanager.cpp.o
+.PHONY : addressmanager.o
+
+# target to build an object file
+addressmanager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arp_spoofer.out.dir/build.make CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.o
+.PHONY : addressmanager.cpp.o
+
+addressmanager.i: addressmanager.cpp.i
+.PHONY : addressmanager.i
+
+# target to preprocess a source file
+addressmanager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arp_spoofer.out.dir/build.make CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.i
+.PHONY : addressmanager.cpp.i
+
+addressmanager.s: addressmanager.cpp.s
+.PHONY : addressmanager.s
+
+# target to generate assembly for a file
+addressmanager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arp_spoofer.out.dir/build.make CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.s
+.PHONY : addressmanager.cpp.s
+
 arphdr.o: arphdr.cpp.o
 .PHONY : arphdr.o
 
@@ -249,6 +273,30 @@ main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arp_spoofer.out.dir/build.make CMakeFiles/arp_spoofer.out.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+packetmanager.o: packetmanager.cpp.o
+.PHONY : packetmanager.o
+
+# target to build an object file
+packetmanager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arp_spoofer.out.dir/build.make CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.o
+.PHONY : packetmanager.cpp.o
+
+packetmanager.i: packetmanager.cpp.i
+.PHONY : packetmanager.i
+
+# target to preprocess a source file
+packetmanager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arp_spoofer.out.dir/build.make CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.i
+.PHONY : packetmanager.cpp.i
+
+packetmanager.s: packetmanager.cpp.s
+.PHONY : packetmanager.s
+
+# target to generate assembly for a file
+packetmanager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/arp_spoofer.out.dir/build.make CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.s
+.PHONY : packetmanager.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -258,6 +306,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... arp_spoofer.out"
+	@echo "... addressmanager.o"
+	@echo "... addressmanager.i"
+	@echo "... addressmanager.s"
 	@echo "... arphdr.o"
 	@echo "... arphdr.i"
 	@echo "... arphdr.s"
@@ -273,6 +324,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... packetmanager.o"
+	@echo "... packetmanager.i"
+	@echo "... packetmanager.s"
 .PHONY : help
 
 

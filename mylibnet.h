@@ -1,6 +1,7 @@
 #include <arpa/inet.h>
 #define ETHER_ADDR_LEN 6
 #define ETHER_LENGTH 14
+
 /*
  *  TCP header
  *  Transmission Control Protocol

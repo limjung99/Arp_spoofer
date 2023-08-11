@@ -1,13 +1,13 @@
 #include "pch.h"
-#include "arpspoofer.h"
+#include "addressmanager.h"
 
 
-ArpSpoofer::ArpSpoofer(string interfacename){
+AddressManager::AddressManager(string interfacename){
     this->interfacename = interfacename;
-    /*------------------------------------------------*/
-    //나의 mac주소 구하기  
     string my_mac_addr;
     string my_ip_addr;
+    /*------------------------------------------------------------------*/
+    //나의 mac주소 구하기  
 	string my_mac_filpath = "/sys/class/net/"+interfacename+"/address";
 	ifstream ifs(my_mac_filpath);
 	ifs>>my_mac_addr;
@@ -47,15 +47,34 @@ ArpSpoofer::ArpSpoofer(string interfacename){
     }
     //메모리 해제
     freeifaddrs(ifAddrList);
-    /*----------------------------------------------------------------------*/
-	my_ip_addr = ipAddress;
+    my_ip_addr = ipAddress;
     myIp = my_ip_addr;
+    /*----------------------------------------------------------------------*/
+    /* 멤버 Ip 및 Mac 초기화 */
+    myMac = Mac(my_mac_addr);
+    myIp = Ip(my_ip_addr);
+    cout<<"=====================나의 IP 및 MAC 주소========================"<<endl;
+    cout<<"[X]My Mac Address:"<<string(myMac)<<endl;
+    cout<<"[X]My Ip Address:"<<string(myIp)<<endl;
 }
 
-void ArpSpoofer::getMyIp(){
+Mac AddressManager::getMyMac(){return myMac;}
 
+Ip AddressManager::getMyIp(){return myIp;}
+
+pair<Ip,Ip> AddressManager::getIpPair(int idx){return sender_target_ip_pair[idx];}
+
+void AddressManager::addIpPair(Ip sender,Ip target){
+    sender_target_ip_pair.push_back({sender,target});
+    counter++;
 }
 
-void ArpSpoofer::getMyMac(){
+int AddressManager::getCounter(){return this->counter;}
 
+string AddressManager::getMacString(Ip ip){
+    return this->ip_mac_pair[string(ip)];
+}
+
+void AddressManager::pushMac(Ip ip,Mac mac){
+    this->ip_mac_pair[string(ip)]=string(mac);
 }

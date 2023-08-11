@@ -139,13 +139,43 @@ CMakeFiles/arp_spoofer.out.dir/arphdr.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/arp_spoofer.out.dir/arphdr.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/limjung99/bob/gilgil/spoof-arp/src/arphdr.cpp -o CMakeFiles/arp_spoofer.out.dir/arphdr.cpp.s
 
+CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.o: CMakeFiles/arp_spoofer.out.dir/flags.make
+CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.o: ../addressmanager.cpp
+CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.o: CMakeFiles/arp_spoofer.out.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/limjung99/bob/gilgil/spoof-arp/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.o -MF CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.o.d -o CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.o -c /home/limjung99/bob/gilgil/spoof-arp/src/addressmanager.cpp
+
+CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/limjung99/bob/gilgil/spoof-arp/src/addressmanager.cpp > CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.i
+
+CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/limjung99/bob/gilgil/spoof-arp/src/addressmanager.cpp -o CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.s
+
+CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.o: CMakeFiles/arp_spoofer.out.dir/flags.make
+CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.o: ../packetmanager.cpp
+CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.o: CMakeFiles/arp_spoofer.out.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/limjung99/bob/gilgil/spoof-arp/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.o -MF CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.o.d -o CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.o -c /home/limjung99/bob/gilgil/spoof-arp/src/packetmanager.cpp
+
+CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/limjung99/bob/gilgil/spoof-arp/src/packetmanager.cpp > CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.i
+
+CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/limjung99/bob/gilgil/spoof-arp/src/packetmanager.cpp -o CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.s
+
 # Object files for target arp_spoofer.out
 arp_spoofer_out_OBJECTS = \
 "CMakeFiles/arp_spoofer.out.dir/main.cpp.o" \
 "CMakeFiles/arp_spoofer.out.dir/mac.cpp.o" \
 "CMakeFiles/arp_spoofer.out.dir/ip.cpp.o" \
 "CMakeFiles/arp_spoofer.out.dir/ethhdr.cpp.o" \
-"CMakeFiles/arp_spoofer.out.dir/arphdr.cpp.o"
+"CMakeFiles/arp_spoofer.out.dir/arphdr.cpp.o" \
+"CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.o" \
+"CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.o"
 
 # External object files for target arp_spoofer.out
 arp_spoofer_out_EXTERNAL_OBJECTS =
@@ -155,9 +185,11 @@ arp_spoofer.out: CMakeFiles/arp_spoofer.out.dir/mac.cpp.o
 arp_spoofer.out: CMakeFiles/arp_spoofer.out.dir/ip.cpp.o
 arp_spoofer.out: CMakeFiles/arp_spoofer.out.dir/ethhdr.cpp.o
 arp_spoofer.out: CMakeFiles/arp_spoofer.out.dir/arphdr.cpp.o
+arp_spoofer.out: CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.o
+arp_spoofer.out: CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.o
 arp_spoofer.out: CMakeFiles/arp_spoofer.out.dir/build.make
 arp_spoofer.out: CMakeFiles/arp_spoofer.out.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/limjung99/bob/gilgil/spoof-arp/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable arp_spoofer.out"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/limjung99/bob/gilgil/spoof-arp/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable arp_spoofer.out"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/arp_spoofer.out.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.o"
+  "CMakeFiles/arp_spoofer.out.dir/addressmanager.cpp.o.d"
   "CMakeFiles/arp_spoofer.out.dir/arphdr.cpp.o"
   "CMakeFiles/arp_spoofer.out.dir/arphdr.cpp.o.d"
   "CMakeFiles/arp_spoofer.out.dir/ethhdr.cpp.o"
@@ -9,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/arp_spoofer.out.dir/mac.cpp.o.d"
   "CMakeFiles/arp_spoofer.out.dir/main.cpp.o"
   "CMakeFiles/arp_spoofer.out.dir/main.cpp.o.d"
+  "CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.o"
+  "CMakeFiles/arp_spoofer.out.dir/packetmanager.cpp.o.d"
   "arp_spoofer.out"
   "arp_spoofer.out.pdb"
 )
