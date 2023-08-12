@@ -62,19 +62,34 @@ Mac AddressManager::getMyMac(){return myMac;}
 
 Ip AddressManager::getMyIp(){return myIp;}
 
-pair<Ip,Ip> AddressManager::getIpPair(int idx){return sender_target_ip_pair[idx];}
+pair<Ip,Ip> AddressManager::getIpPair(int idx){return sender_target_ip_vector[idx];}
 
 void AddressManager::addIpPair(Ip sender,Ip target){
-    sender_target_ip_pair.push_back({sender,target});
+    sender_target_ip_vector.push_back({sender,target});
+    sender_target_ip_map[sender]=target;
     counter++;
 }
 
 int AddressManager::getCounter(){return this->counter;}
 
-string AddressManager::getMacString(Ip ip){
-    return this->ip_mac_pair[string(ip)];
+Mac AddressManager::getMacFromIp(Ip ip){
+    return this->ip_mac_pair[ip];
 }
 
 void AddressManager::pushMac(Ip ip,Mac mac){
     this->ip_mac_pair[string(ip)]=string(mac);
+}
+
+bool AddressManager::isSenderIpExist(Ip ip){
+    string ip_string = string(ip);
+    for(int i=0;i<this->getCounter();i++){
+        pair<Ip,Ip> ip_pair = sender_target_ip_vector[i];
+        string sender_ip = string(ip_pair.first);
+        if(ip_string==sender_ip) return true;
+    }
+    return false;
+}
+
+Ip AddressManager::getTipFromSip(Ip ip){
+    return sender_target_ip_map[ip];
 }

@@ -16,4 +16,5 @@
 #include <mutex>
 #include <queue>
 #include <condition_variable>
+#include <hash_map>
 using namespace std;

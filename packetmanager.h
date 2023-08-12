@@ -6,9 +6,9 @@ class PacketManager{
     pcap_t *handle; /* packetmanager의 패킷 핸들러 멤버 포인터변수 */
     public:
         PacketManager(string interfacename);
-        void sendArpPacket(string dmac,string smac,string sip,string tmac,string tip,u_int16_t type); /* type에 따른 Arp프로토콜 패킷을 전송하는 함수 */
+        void sendArpPacket(Mac dmac,Mac smac,Ip sip,Mac tmac,Ip tip,u_int16_t type); /* type에 따른 Arp프로토콜 패킷을 전송하는 함수 */
         pcap_t* getHandler();
         void close();
-        int packetCapture(const u_char*& packet,pcap_pkthdr*& header);
-        int sendPacket(const u_char*& packet,pcap_pkthdr*& header);
+        void packetCapture(const u_char*& packet,pcap_pkthdr*& header);
+        void sendPacket(const u_char*& packet,pcap_pkthdr*& header);
 };
