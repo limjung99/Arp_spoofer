@@ -1,18 +1,53 @@
 #include "packetmanager.h"
 #include "etharp.h"
 
-PacketManager::PacketManager(string interfacename){
+/* PacketListner */
+PacketListner* PacketListner::getInstance(){
+	if(instance==nullptr){
+		instance = new PacketListner();
+		return instance;
+	}
+	return instance;
+}
+
+void PacketListner::initState(char* dev){
 	char errbuf[PCAP_ERRBUF_SIZE];
-	this->handle = pcap_open_live(interfacename.c_str(), 1024, 1, 1000, errbuf);
+	this->handle = pcap_open_live(dev, 1024, 1, 1000, errbuf);
     if (handle == nullptr) {
-		fprintf(stderr, "couldn't open device %s(%s)\n", interfacename.c_str(), errbuf);
+		fprintf(stderr, "couldn't open device %s(%s)\n", dev, errbuf);
 		return;
 	}
 }
 
-/* type에 따른 arp 프로토콜을 통한 패킷 송신 함수 */
-void PacketManager::sendArpPacket(Mac dmac,Mac smac,Ip sip,Mac tmac,Ip tip,u_int16_t type){
-    EthArpPacket packet;
+int PacketListner::capturePacket(const u_char*& packet,pcap_pkthdr*& header){
+	int res = pcap_next_ex(handle, &header, &packet);
+	return res;
+}
+
+
+
+
+
+/* PacketSender */
+PacketSender* PacketSender::getInstance(){
+	if(instance==nullptr){
+		instance = new PacketSender();
+		return instance;
+	}
+	return instance;
+}
+
+void PacketSender::initState(char* dev){
+	char errbuf[PCAP_ERRBUF_SIZE];
+	this->handle = pcap_open_live(dev, 1024, 1, 1000, errbuf);
+    if (handle == nullptr) {
+		fprintf(stderr, "couldn't open device %s(%s)\n", dev, errbuf);
+		return;
+	}
+}
+
+void PacketSender::sendArpPacket(Mac dmac,Mac smac,Ip sip,Mac tmac,Ip tip,u_int16_t type){
+	EthArpPacket packet;
 	packet.eth_.dmac_ = dmac;
 	packet.eth_.smac_ = smac;
 	packet.eth_.type_ = htons(EthHdr::Arp);
@@ -32,21 +67,3 @@ void PacketManager::sendArpPacket(Mac dmac,Mac smac,Ip sip,Mac tmac,Ip tip,u_int
 	}
 }
 
-pcap_t* PacketManager::getHandler(){return handle;}
-
-void PacketManager::close(){pcap_close(handle);}
-
-void PacketManager::packetCapture(const u_char*& packet,pcap_pkthdr*& header){
-	int res = pcap_next_ex(handle, &header, &packet);
-	if (res != 0) {
-		fprintf(stderr, "pcap_sendpacket return %d error=%s\n", res, pcap_geterr(handle));
-	}
-}
-
-void PacketManager::sendPacket(const u_char*& packet,pcap_pkthdr*& header){
-	cout<<header->caplen<<endl;
-	int res = pcap_sendpacket(handle,packet,header->caplen);
-	if (res != 0) {
-		fprintf(stderr, "pcap_sendpacket return %d error=%s\n", res, pcap_geterr(handle));
-	}
-}

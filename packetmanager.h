@@ -1,14 +1,27 @@
 #include "pch.h"
 #include "ip.h"
 #include "mac.h"
+/* 각자 다른 세션 형성 */
 
-class PacketManager{
-    pcap_t *handle; /* packetmanager의 패킷 핸들러 멤버 포인터변수 */
+class PacketListner{
+    
+    private:
+        pcap_t* handle;
+        static PacketListner* instance;
+        PacketListner();
     public:
-        PacketManager(string interfacename);
-        void sendArpPacket(Mac dmac,Mac smac,Ip sip,Mac tmac,Ip tip,u_int16_t type); /* type에 따른 Arp프로토콜 패킷을 전송하는 함수 */
-        pcap_t* getHandler();
-        void close();
-        void packetCapture(const u_char*& packet,pcap_pkthdr*& header);
-        void sendPacket(const u_char*& packet,pcap_pkthdr*& header);
+        static PacketListner* getInstance();
+        void initState(char* dev);
+        int capturePacket(const u_char*& packet,pcap_pkthdr*& pkthdr);
+};
+
+class PacketSender{
+    private:
+        pcap_t* handle;
+        static PacketSender* instance;
+        PacketSender();
+    public:
+        static PacketSender* getInstance();
+        void initState(char* dev);
+        void sendArpPacket(Mac dmac,Mac smac,Ip sip,Mac tmac,Ip tip,u_int16_t type);
 };
